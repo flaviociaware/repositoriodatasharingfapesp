@@ -33,7 +33,8 @@ if(sum(as.numeric(!pacotes %in% installed.packages())) != 0){
 #setwd("/Users/fbarbosa/git/repositoriodatasharingfapesp/R")
 #load("/Users/fbarbosa/git/repositoriodatasharingfapesp/R/data-tcc-fb-desfechos.csv")
 
-desfechos <- read.csv("/Users/fbarbosa/git/repositoriodatasharingfapesp/R/data-tcc-fb-desfechos.csv", header=TRUE)
+#desfechos <- read.csv("/Users/fbarbosa/git/repositoriodatasharingfapesp/R/data-tcc-fb-desfechos.csv", header=TRUE)
+desfechos <- read.csv("/Users/Flavio Barbosa/git/repositoriodatasharingfapesp/R/data-tcc-fb-desfechos.csv", header=TRUE)
 head(desfechos)
 
 # removendo valores NA (se existirem)
@@ -64,3 +65,4 @@ round(sd(desfecho_pad$qtd_desfechos_obito), 3)
 
 fviz_nbclust(desfecho_pad, kmeans, method = "wss", k.max = 15)
 
+#fviz_nbclust(desfecho_pad, kmeans, method = "wss", k.max = 30)
