@@ -1,0 +1,26 @@
+CREATE TABLE bpsp_desfecho_01 (
+  ID_PACIENTE VARCHAR(60) NOT NULL
+, ID_ATENDIMENTO VARCHAR(60)
+, DT_ATENDIMENTO VARCHAR(30)
+, DE_TIPO_ATENDIMENTO VARCHAR(30)
+, ID_CLINICA VARCHAR(100)
+, DE_CLINICA VARCHAR(100)
+, DT_DESFECHO VARCHAR(30)
+, DE_DESFECHO VARCHAR(100)
+);
+
+-- ID_PACIENTE|ID_ATENDIMENTO|DT_ATENDIMENTO|DE_TIPO_ATENDIMENTO|ID_CLINICA|DE_CLINICA|DT_DESFECHO|DE_DESFECHO
+-- ID_PACIENTE|ID_ATENDIMENTO|DT_ATENDIMENTO|DE_TIPO_ATENDIMENTO|ID_CLINICA|DE_CLINICA|DT_DESFECHO|DE_DESFECHO
+
+CREATE INDEX IDX_bpsp_desfecho_01_1 ON bpsp_desfecho_01 (ID_PACIENTE);
+CREATE INDEX IDX_bpsp_desfecho_01_2 ON bpsp_desfecho_01 (ID_ATENDIMENTO);
+
+
+cd /Library/PostgreSQL/14/bin
+psql -U postgres -d mba-usp-esalq
+
+
+\copy bpsp_desfecho_01 FROM '/Users/fbarbosa/git/repositoriodatasharingfapesp/arquivos-fonte/BPSP-2021-04-28/bpsp_desfecho_01.csv' csv header delimiter '|'
+
+\copy bpsp_desfecho_01 FROM '/Users/fbarbosa/Downloads/BPSP/bpsp_desfecho_01.csv' csv header delimiter '|'
+
