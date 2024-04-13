@@ -1,12 +1,21 @@
+
+
 ##################################################################################
 #                  INSTALAÇÃO E CARREGAMENTO DE PACOTES NECESSÁRIOS             #
 ##################################################################################
 #Pacotes utilizados
-pacotes <- c("plotly","tidyverse","ggrepel","fastDummies","knitr","kableExtra",
+#install.packages("equatiomatic")
+
+pacotes <- c("plotly","tidyverse","ggrepel","fastDummies","knitr", "kableExtra",
              "splines","reshape2","PerformanceAnalytics","correlation","see",
              "ggraph","psych","nortest","rgl","car","ggside","tidyquant","olsrr",
-             "jtools","ggstance","magick","cowplot","emojifont","beepr","Rcpp",
-             "equatiomatic")
+             "jtools","ggstance","magick","cowplot","emojifont","beepr","Rcpp", "equatiomatic", "palmerpenguins", "ggplot2", "latex2exp")
+
+# https://www.rdocumentation.org/packages/equatiomatic/versions/0.3.1
+# desenvolvedores: 
+#remotes::install_github("datalorax/equatiomatic", force = TRUE)
+# 
+#
 
 options(rgl.debug = TRUE)
 
@@ -19,6 +28,9 @@ if(sum(as.numeric(!pacotes %in% installed.packages())) != 0){
 } else {
   sapply(pacotes, require, character = T) 
 }
+
+
+#knitr::opts_chunk$set(echo = TRUE)
 
 ##################################################################################
 # Importando a base de dados
@@ -90,13 +102,18 @@ summary(modelo_estudo_stepped)
 
 #Visualização do modelo no ambiente Viewer
 #função 'extract_eq' do pacote 'equatiomatic'
+#
+# 
+#pacotes <- c("equatiomatic") 
+#
+#
+
 extract_eq(modelo_estudo_stepped, use_coefs = T,
            wrap = T, show_distribution = T) %>%
   kable() %>%
   kable_styling(bootstrap_options = "striped",
                 full_width = F,
                 font_size = 25)
-
 
 
 ################################################################################
